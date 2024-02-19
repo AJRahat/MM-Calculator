@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MM Calculator</title>
+    <!-- Daisy UI -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Style:Default -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        clifford: '#da373d',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- CSS -->
+    <style>
+        ul {
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1 class="uppercase text-7xl font-extrabold text-center mb-10">Monthly Milk Calculator</h1>
+    </header>
+    <main class="w-11/12 lg:w-10/12 mx-auto">
+        <!-- 1st Section -->
+        <div class="flex flex-col lg:flex-row border p-4 rounded-md">
+            <!-- Left -->
+            <div class="mt-0 lg:mt-24 mr-0 lg:mr-10">
+                <div class="flex gap-3 justify-between">
+                    <h3 class="font-bold text-xl">Quantity : </h2>
+                        <input id="qnt" type="text" list="cars">
+                        <datalist id="cars">
+                            <option>.25</option>
+                            <option>.5</option>
+                            <option>.75</option>
+                            <option>1</option>
+                            <option>1.25</option>
+                            <option>1.5</option>
+                            <option>1.75</option>
+                            <option>2</option>
+                        </datalist>
+                </div>
+                <br>
+                <div class="flex justify-between">
+                    <h3 class="font-bold text-xl">Day : </h2>
+                        <input id="day" class="ml-8" type="number">
+                </div>
+                <div class="flex items-center justify-center">
+                    <button id="add-btn"
+                        class="w-full my-3 bg-gray-500 rounded text-white font-semibold text-xl">ADD</button>
+                </div>
+            </div>
+            <!-- Right -->
+            <div id="add-list" class="flex-1">
+                <h2 class="text-center my-2 font-bold text-2xl">Display</h2>
+                <hr>
+                <ul>
+                    <li>Quantity</li>
+                    <li>Day</li>
+                    <li>Costs</li>
+                </ul>
+                <hr>
+            </div>
+        </div>
+        <!-- 2nd Section -->
+        <div class="w-2/4 lg:w-1/4 mx-auto border mt-5 p-3 rounded-md">
+            <h2 class="flex justify-between font-bold text-xl">Days Counted: <span id="day-count">0</span></h1>
+            <h2 class="flex justify-between font-bold text-xl">Total Costs: <span id="cost-count">0</span></h1>
+            <div class="flex justify-between">
+                <h2 class="flex justify-between font-bold text-lg">Old Remaining:</h2>
+                <input id="old-remain" type="number" class="w-[20%]">
+            </div>
+            <hr class="my-2">
+            <h2 class="flex justify-between font-bold text-xl">Grand Total: <span id="grand-total">0</span>Tk</h1>
+        </div>
+    </main>
+
+    <script src="./script/code.js"></script>
+</body>
+
+</html>
