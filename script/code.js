@@ -4,8 +4,8 @@ document.getElementById('add-btn').addEventListener('click', function () {
     const dayVal = day.value;
     const quantityVal = quantity.value;
 
-    day.value="";
-    quantity.value="";
+    day.value = "";
+    quantity.value = "";
 
     const addList = document.getElementById('add-list');
     const ul = document.createElement('ul');
@@ -47,7 +47,7 @@ document.getElementById('add-btn').addEventListener('click', function () {
     else if (quantityVal === '2') {
         li3.innerText = 160 * parseInt(dayVal);
     }
-    else if (quantityVal === '00') {
+    else if (quantityVal === '0') {
         li3.innerText = 0;
     }
     else {
@@ -56,32 +56,42 @@ document.getElementById('add-btn').addEventListener('click', function () {
 
     addList.appendChild(ul);
 
+
     // -----------------Day Count
-    const dayLoop=document.getElementsByClassName('day-s');
-    let dayCounted=0;
-    for(const days of dayLoop){
-        const day=parseInt(days.innerText);
+    const dayLoop = document.getElementsByClassName('day-s');
+    let dayCounted = 0;
+    for (const days of dayLoop) {
+        const day = parseInt(days.innerText);
         const dayCount = document.getElementById('day-count');
-        dayCounted = dayCounted+day;
-        dayCount.innerText=dayCounted;
+        dayCounted = dayCounted + day;
+        dayCount.innerText = dayCounted;
     }
     // ---------------Total Cost Count
-    const costLoop=document.getElementsByClassName('cost-s');
-    let costCounted=0;
-    for(const costs of costLoop){
-        const cost=parseInt(costs.innerText);
+    const costLoop = document.getElementsByClassName('cost-s');
+    let costCounted = 0;
+    for (const costs of costLoop) {
+        const cost = parseInt(costs.innerText);
         const costCount = document.getElementById('cost-count');
-        costCounted = costCounted+cost;
-        costCount.innerText=costCounted;
+        costCounted = costCounted + cost;
+        costCount.innerText = costCounted;
     }
-    // ---------------Old Remain
-    const oldRemain=document.getElementById('old-remain');
-    const convertedOldRemain=parseInt(oldRemain.value);
     // --------------Grand Total
-    const grandTotal=document.getElementById('grand-total');
-    convertedGrandTotal=parseInt(grandTotal.innerText);
-    grandTotal.innerText=costCounted-convertedOldRemain;
+    const grandTotal = document.getElementById('grand-total');
+    convertedGrandTotal = parseInt(grandTotal.innerText);
+    grandTotal.innerText = costCounted;
 })
+// ------------Old Remaining
+document.getElementById('push-btn').addEventListener('click', function () {
+    const oldRemain = document.getElementById('old-remain');
+    const convertedOldRemain = parseInt(oldRemain.value);
 
+    const grandTotal = document.getElementById('grand-total');
+    const convertedGrandTotal = parseInt(grandTotal.innerText);
 
-
+    grandTotal.innerText = convertedGrandTotal - convertedOldRemain;
+    oldRemain.value = "";
+})
+// -----------Clear Btn
+document.getElementById('clr-btn').addEventListener('click',function(){
+    location.reload();
+})

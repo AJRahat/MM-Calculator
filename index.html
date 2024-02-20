@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 
 <head>
     <meta charset="UTF-8">
@@ -22,16 +22,32 @@
     </script>
     <!-- CSS -->
     <style>
+        body{
+            background-color: #00ABE1;
+        }
         ul {
             display: flex;
             justify-content: space-between;
+            font-weight: 500;
+        }
+        h2,h3{
+            color:#161F6D;
+        }
+        button,.btn{
+            background-color: #161F6D;
+            color:white;
+            border: none;
+        }
+        input{
+            border-radius: 10px;
+            background-color: skyblue;
         }
     </style>
 </head>
 
-<body>
+<body class="min-h-screen">
     <header>
-        <h1 class="uppercase text-7xl font-extrabold text-center mb-10">Monthly Milk Calculator</h1>
+        <h1 class="uppercase text-7xl font-extrabold text-center mb-10 text-transparent bg-clip-text bg-gradient-to-l from-teal-50 to-indigo-600">Monthly Milk Calculator</h1>
     </header>
     <main class="w-11/12 lg:w-10/12 mx-auto">
         <!-- 1st Section -->
@@ -40,8 +56,9 @@
             <div class="mt-0 lg:mt-24 mr-0 lg:mr-10">
                 <div class="flex gap-3 justify-between">
                     <h3 class="font-bold text-xl">Quantity : </h2>
-                        <input id="qnt" type="text" list="cars">
-                        <datalist id="cars">
+                        <input id="qnt" type="text" list="kg">
+                        <datalist id="kg">
+                            <option>0</option>
                             <option>.25</option>
                             <option>.5</option>
                             <option>.75</option>
@@ -59,11 +76,11 @@
                 </div>
                 <div class="flex items-center justify-center">
                     <button id="add-btn"
-                        class="w-full my-3 bg-gray-500 rounded text-white font-semibold text-xl">ADD</button>
+                        class="btn w-full my-3 rounded font-semibold text-lg">ADD</button>
                 </div>
             </div>
             <!-- Right -->
-            <div id="add-list" class="flex-1">
+            <div id="add-list" class="lists flex-1">
                 <h2 class="text-center my-2 font-bold text-2xl">Display</h2>
                 <hr>
                 <ul>
@@ -81,12 +98,15 @@
             <div class="flex justify-between">
                 <h2 class="flex justify-between font-bold text-lg">Old Remaining:</h2>
                 <input id="old-remain" type="number" class="w-[20%]">
+                <button id="push-btn" class="bg-gray-600 text-white w-10 h-10 rounded-full">push</button>
             </div>
             <hr class="my-2">
             <h2 class="flex justify-between font-bold text-xl">Grand Total: <span id="grand-total">0</span>Tk</h1>
         </div>
     </main>
-
+    <footer class="mt-10 w-10/12 mx-auto">
+        <button id="clr-btn" class="btn w-full font-bold text-xl">Clear All</button>
+    </footer>
     <script src="./script/code.js"></script>
 </body>
 
